@@ -1,0 +1,286 @@
+
+.body-report {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  font-weight: 300;
+  //height: auto;
+  width: 100%;
+  background-color: rgb(204,204,204);
+  //font-family: ''; google
+}
+
+h2, h4, p {
+  margin: 0;
+}
+
+.page {
+  background-color: #fff;
+  display: block;
+  margin: 0 auto 3rem auto; //3rem auto 3rem auto
+  position: relative;
+  box-shadow: 0 0 0.5cm rgb(0, 0, 0, 0.1);
+}
+
+.page-A4 {
+
+  background-color: #fff;
+  display: block;
+  margin: 0 auto 0 auto; //3rem auto 3rem auto
+  position: relative;
+  box-shadow: 0 0 0.5cm rgb(0, 0, 0, 0.1);
+
+
+  /* new jsPDF('landscape', 'pt', 'a4')  width: 21.0cm; height: 29.7cm;  */
+  //portrait
+  // width: 22.3cm;//22.3cm; //21cm;    1066px ??
+  // height: 29.7cm;////29.7cm; //29.7cm;  585px;??
+  //landscape
+  width: 29.7cm;//22.3cm; //21cm;    1066px ??
+  height: 21cm;////29.7cm; //21cm;  585px;?? 21.0cm
+
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  //a4 site width 21cm e height 29.7cm;
+  //portrait A4 ??   width: 595px; height: 842px;
+  //landscape width 842px - height : 650
+  .top-section {
+    color: #fff;
+    padding: 20px;
+    height: 180px; //200px
+    background-color: #6a1b9a;
+  }
+
+  /* Billing invoice */
+  .billing-invoice {
+    // padding: 20px;
+    // font-size: 20px; //20px
+    // margin-bottom: 15px;
+    // height: 42px;
+
+    padding: 20px 40px 10px 40px;
+    font-size: 20px;
+    margin-bottom: 15px;
+    height: 20px;
+  }
+
+}
+
+/* top-section */
+
+// .top-section {
+//   color: #fff;
+//   padding: 20px;
+//   height: 115px; //115px
+//   background-color: #6a1b9a;
+// }
+
+.top-section h2 {
+  font-size: 42px;
+  margin-bottom: 10px;
+  font-weight: 400;
+}
+
+.top-section p {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.top-section .address {
+  //width: 50%;
+  max-width: 275px;
+  height: 115px; //100%
+  float: left;
+  display: block;
+}
+
+.top-section .address-content {
+  max-width: 275px;
+  display: block;
+}
+
+.contact {
+ max-width: 240px;
+ float: right;
+ margin-top: 32px;
+}
+
+.contact-content .email, .contact-content .number {
+  display: block;
+}
+
+.contact-content .email span,
+.contact-content .number span {
+ float: right;
+ margin-left: 30px;
+}
+
+//billing continue
+
+.billing-invoice .title {
+  font-weight: 400;
+  float: left;
+  height: 42px;
+}
+
+.billing-invoice .des {
+  font-weight: 400;
+  float: right;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 42px;
+  //border: 1px purple solid;
+}
+
+.billing-invoice .code {
+  font-weight: 700;
+  float: right;
+}
+
+.billing-invoice .issue {
+  font-size: 15px;
+  //float: right;
+}
+
+/* bILLING TO */
+
+.billing-section {
+  // height: 80px;
+  // width: 100%;
+  // padding: 20px;
+  // margin-top: 16px;
+  // margin-bottom: 30px;
+
+  height: 60px;
+  width: 100%;
+  padding: 0px 20px 0px 20px;
+  /* margin-top: 16px; */
+  margin-bottom: 0px;
+}
+
+// .billing-to {
+//   float: left;
+// }
+
+// .billing-sec {
+//  float: right;
+//  width: 50%;
+//  display: flex;
+//  flex-direction: column;
+//  justify-content: flex-end;
+// }
+
+.billing-to {
+  padding: 20px;
+  margin-top: 8px;
+}
+
+.billed-sec p {
+ font-size: 16px;
+}
+
+.billing-to .title {
+  font-weight: 400;
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+
+.ship-add {
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+.billing-to .billed-sec {
+  width: 50%;
+  float: left;
+  font-size: 18px;
+  margin-bottom: 25px;
+}
+
+.billing-to .sub-title,
+.billing-to .name {
+  font-weight: 400;
+  font-size: 16px; //18px
+  margin-bottom: 5px;
+}
+
+.billing-to .ship-add {
+  max-width: 300px;
+}
+
+.table {
+  width: 100%;
+  padding: 0 20px;
+}
+
+.table table {
+  width: 100%;
+}
+
+.table table, th {
+ background-color: #6a1b9a;
+ color: white;
+}
+
+.table th, tr {
+ font-size: 16px;
+ font-weight: 400;
+}
+
+.table table, th, td {
+  padding: 5px;
+  text-align: center;
+  border: 1px solid #616161;
+  border-collapse: collapse;
+}
+
+ /*  bottom section  */
+
+.bottom-section {
+  margin-top: 15px;
+  padding: 20px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.bottom-section .status-content h4 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.bottom-section .status.free::before,
+.bottom-section .status.paid::before {
+  padding: 5px 10px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  margin-bottom: 8px;
+  display: inline-block;
+  text-transform: uppercase;
+}
+
+.bottom-section .status.free::before {
+  content: "Pendente";
+  background-color: #ef7c94;
+}
+
+.bottom-section .status.paid::before {
+  content: "Pago";
+  background-color: greenyellow;
+}
+
+.footer {
+  display: flex;
+  flex-direction: row;
+  //border: 1px solid purple;
+  width: 100%;
+  justify-content: center;
+  margin-top: 10px;
+}

@@ -1,0 +1,125 @@
+<button id="button" (click)="button()" style="width: 200px; padding: 16px">
+  Gerar PDF
+</button>
+
+<!-- class="body-report" -->
+<div id="report" class="page-A4" #report>
+  @for (page of arrayPage; track page; let index = $index ) {
+  <!-- ; track item -->
+  <div class="page-A4" style="padding-right: 24px">
+    <!-- class="page page-A4"  [id]="rel+index.toString()" #report -->
+    <!-- [id]="rel+index.toString()" id="report" #report -->
+    @if (index === 0 ) {
+    <div class="top-section">
+      <div class="address">
+        <div class="address-content">
+          <h2>Nome Empresa</h2>
+          <div>rua 1 2 3, estado, cidade</div>
+        </div>
+      </div>
+      <div class="contact">
+        <div class="contact-content">
+          <div class="email">E-mail: <span class="span">email.com</span></div>
+          <div class="number">
+            Telefone: <span class="span">41 3333-4444</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    }
+
+    <div class="billing-invoice">
+      <div class="title">Nota</div>
+      <div class="des">
+        <p class="code">#12355566-acbde</p>
+        <p class="issue">Emitido: <span>{{dateCurrent.toLocaleDateString()}}</span></p><!-- 24/07/2024-->
+      </div>
+    </div>
+
+    <!-- Billed To -->
+    @if (index === 0 || index === (arrayPage.length - 1)) {
+    <div class="billing-section">
+      <div class="billing-to">
+        <div class="title">Comprador</div>
+        <div class="billed-sec" style="margin-top: 8px">
+          <p class="name" style="margin-top: 8px">John Bueno</p>
+          <p style="margin-top: 8px">{{ email }}</p>
+          <p style="margin-top: 8px; margin-bottom: 10px">+54 18 3322 2121</p>
+        </div>
+      </div>
+
+      <!-- Billed Sec -->
+      <div class="billing-sec">
+        <div class="sub-title">Local entrega</div>
+        <div class="ship-add">
+          1265 Rua pinheiros, avenida palace, PR, londrina
+        </div>
+      </div>
+    </div>
+    }
+
+    <!-- invoice table -->
+    <div style="padding: 5px 20px 20px 20px;">
+      <table class="table" [ngStyle]="{
+        'margin-top': index !== 0 ? '32px' : '0px'
+      }">
+        @if (index !== (arrayPage.length - 1)) {
+        <tr>
+          <th>#</th>
+          <th>Produto</th>
+          <th>Qty</th>
+          <th>Preço unitário</th>
+          <th>SubTotal</th>
+          <th>Entrega</th>
+          <th>Total</th>
+        </tr>
+        } @for (item of dados; track item; let indextd = $index ) { @if
+        (item.pagina === page) {
+        <tr
+          [ngStyle]="{
+            'background-color': indextd % 2 === 0 ? '#DCDCDC' : 'white'
+          }"
+        >
+          <td>{{ item.dados }}</td>
+          <td>
+            Lorem Ipsum is simply dummy text of the printing and typesetting.
+          </td>
+          <td>2</td>
+          <td>15.00</td>
+          <td>30.00</td>
+          <td>10.00</td>
+          <td>40.00</td>
+        </tr>
+        } }
+      </table>
+    </div>
+
+    <div class="bottom-section">
+      @if (index === (arrayPage.length - 1) ) {
+
+      <div style="display:flex;flex-direction: column;width: 100%; margin-bottom: 32px;align-items:center;">
+        <div style="font-size: 18px;"> J. Bueno </div>
+        <div style="font-size: 14px;text-transform: uppercase;text-decoration: overline;">Assinatura do responsável</div>
+      </div>
+
+      }
+
+      <div class="status-content">
+        @if (index === (arrayPage.length - 1) ) {
+        <h4>Status Pagamento</h4>
+        <p class="status paid"></p>
+
+        <p>Metodo de Pagamento: <span> Cartão </span></p>
+        }
+        <p class="footer">
+          Copyright © {{ dateCurrent.getFullYear() }}
+          <a href="#" style="margin-left: 6px; margin-right: 4px">BuenoDev.</a>
+          All rights reserved - page {{ index + 1 }} / {{ arrayPage.length }}
+          <!-- + 1 -->
+        </p>
+      </div>
+    </div>
+  </div>
+  }
+</div>
